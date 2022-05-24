@@ -577,7 +577,7 @@ namespace StackExchange.Redis
                     throw new NotSupportedException("Unknown endpoint type: " + primaryEndpoint.GetType().Name);
                 }
             }
-            return Message.Create(-1, flags, sendMessageTo.GetFeatures().ReplicaCommands ? RedisCommand.REPLICAOF : RedisCommand.SLAVEOF, host, port);
+            return Message.Create(-1, flags, RedisCommand.REPLICAOF, host, port);
         }
 
         private Message? GetTiebreakerRemovalMessage()

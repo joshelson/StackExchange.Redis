@@ -215,7 +215,7 @@ namespace StackExchange.Redis
         {
             _ = server ?? throw new ArgumentNullException(nameof(server));
 
-            var cmd = server.GetFeatures().ReplicaCommands ? RedisCommand.REPLICAOF : RedisCommand.SLAVEOF;
+            var cmd = RedisCommand.REPLICAOF;
             CommandMap.AssertAvailable(cmd);
 
             if (!RawConfig.AllowAdmin)
